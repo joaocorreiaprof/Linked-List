@@ -33,6 +33,37 @@ export default class LinkedList {
       count++;
       current = current.next;
     }
-    return console.log("Size of linked list:", count);
+    return count;
+  }
+
+  getHead() {
+    return this.head ? this.head.data : null;
+  }
+
+  getTail() {
+    if (!this.head) {
+      return null;
+    }
+    let current = this.head;
+    while (current.next) {
+      current = current.next;
+    }
+    return current.data;
+  }
+
+  getAt(index) {
+    if (index < 0 || index >= this.getSize()) {
+      throw new Error(`ERROR: Index ${index} is out of bounds`);
+    }
+
+    let current = this.head;
+    let count = 0;
+
+    while (count < index) {
+      current = current.next;
+      count++;
+    }
+
+    return current.data;
   }
 }
