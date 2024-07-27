@@ -116,7 +116,27 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\nconsole.log(\"working!\");\nconsole.log(\"Hello, Webpack with Babel!\");\n\n\n//# sourceURL=webpack://webpack-demo/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _modules_LinkedList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/LinkedList */ \"./src/modules/LinkedList.js\");\n\n\n\nconst ll = new _modules_LinkedList__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\n\nll.insertFirst(100);\nll.insertFirst(200);\nll.insertFirst(300);\nll.insertLast(500);\n\nconsole.log(JSON.stringify(ll));\nll.getSize();\n\n\n//# sourceURL=webpack://webpack-demo/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/modules/LinkedList.js":
+/*!***********************************!*\
+  !*** ./src/modules/LinkedList.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ LinkedList)\n/* harmony export */ });\n/* harmony import */ var _Node__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Node */ \"./src/modules/Node.js\");\n\n\nclass LinkedList {\n  constructor() {\n    this.head = null;\n    this.size = 0;\n  }\n  insertFirst(data) {\n    this.head = new _Node__WEBPACK_IMPORTED_MODULE_0__[\"default\"](data, this.head);\n    this.size++;\n  }\n\n  insertLast(data) {\n    let node = new _Node__WEBPACK_IMPORTED_MODULE_0__[\"default\"](data);\n    let current;\n\n    if (!this.head) {\n      this.head = node;\n    } else {\n      current = this.head;\n      while (current.next) {\n        current = current.next;\n      }\n      current.next = node;\n    }\n    this.size++;\n  }\n\n  getSize() {\n    let count = 0;\n    let current = this.head;\n    while (current !== null) {\n      count++;\n      current = current.next;\n    }\n    return console.log(\"Size of linked list:\", count);\n  }\n}\n\n\n//# sourceURL=webpack://webpack-demo/./src/modules/LinkedList.js?");
+
+/***/ }),
+
+/***/ "./src/modules/Node.js":
+/*!*****************************!*\
+  !*** ./src/modules/Node.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Node)\n/* harmony export */ });\nclass Node {\n  constructor(data, next = null) {\n    this.data = data;\n    this.next = next;\n  }\n}\n\n\n//# sourceURL=webpack://webpack-demo/./src/modules/Node.js?");
 
 /***/ })
 
